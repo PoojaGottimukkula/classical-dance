@@ -34,8 +34,24 @@ const SYLLABUS = {
       title: "Adavu Syllabus",
       summary: "Basic coordinated footwork sequences grouped by 'adavu' types and tempos (kalam).",
       lessons: [
-        {id: "tala_adavu", title: "Tala Adavu", notes: "Basic stamping patterns to keep tala (rhythm).", practiceSteps: ["Count tala","Start slowly at 1 kalam","Increase tempo"], animationHint: "adavu_basic"},
-        {id: "nattadavu", title: "Natta Adavu", notes: "Combinations moving across the stage.", practiceSteps: ["Mark steps","Sync with hand gestures"], animationHint: "adavu_natta"}
+        {id: "tatta_1", title: "Tatta Adavu 1", notes: "Basic Tatta pattern — foundation stamping movement (variation 1).", practiceSteps: ["Stand in araimandi","Mark the foot pattern slowly","Keep arms controlled"], animationHint: "tatta_1"},
+        {id: "tatta_2", title: "Tatta Adavu 2", notes: "Tatta variation 2 with slight change in arms/footwork.", practiceSteps: ["Practice counts 1–8","Repeat 16 times slowly","Increase tempo gradually"], animationHint: "tatta_2"},
+        {id: "tatta_3", title: "Tatta Adavu 3", notes: "Tatta variation 3 emphasizing tempo change.", practiceSteps: ["Use tala counting","Maintain posture"], animationHint: "tatta_3"},
+        {id: "tatta_4", title: "Tatta Adavu 4", notes: "Tatta variation 4 — additional arm motif.", practiceSteps: ["Coordinate arms with footwork","Use mirror to check symmetry"], animationHint: "tatta_4"},
+        {id: "tatta_5", title: "Tatta Adavu 5", notes: "Tatta variation 5 — crossing steps added.", practiceSteps: ["Mark crossing foot pattern slowly","Align gaze and hands"], animationHint: "tatta_5"},
+        {id: "tatta_6", title: "Tatta Adavu 6", notes: "Tatta variation 6 — syncopated stamping.", practiceSteps: ["Work on rhythm accuracy","Practice with a metronome"], animationHint: "tatta_6"},
+        {id: "tatta_7", title: "Tatta Adavu 7", notes: "Tatta variation 7 — dynamic armwork.", practiceSteps: ["Emphasize shoulder-stability","Slow practice then speed up"], animationHint: "tatta_7"},
+        {id: "tatta_8", title: "Tatta Adavu 8", notes: "Tatta variation 8 — combined elements from previous tattas.", practiceSteps: ["Sequence all previous tattas","Practice transitions smoothly"], animationHint: "tatta_8"},
+        {id: "kuditta_mettu", title: "Kuditta Mettu (Kuditta Metta)", notes: "A variant with jumping and stamping — used in many adavu sequences.", practiceSteps: ["Warm up ankles","Start slow jumps in 1 kalam","Maintain araimandi"], animationHint: "kuditta_mettu"},
+        {id: "paraval", title: "Paraval Adavu", notes: "Paraval (paraval) style adavu — lateral movements and rhythmic accents.", practiceSteps: ["Practice lateral steps","Sync with hand gestures"], animationHint: "paraval_adavu"},
+        {id: "natta_adavu", title: "Natta Adavu", notes: "Natta — quick stamping patterns often used as linking sequences.", practiceSteps: ["Keep tempo steady","Coordinate head and eye movements"], animationHint: "natta_adavu"},
+        {id: "tatta_mettu", title: "Tatta Mettu", notes: "Combined Tatta and Mettu elements — used in medium-tempo sequences.", practiceSteps: ["Alternate between tatta and mettu","Count tala carefully"], animationHint: "tatta_mettu"},
+        {id: "kudittamettu_variant", title: "Kudittamettu Variant", notes: "Another common mettu variant with hop and stamp.", practiceSteps: ["Practice hop-land mechanics","Keep knees soft on landing"], animationHint: "kudittamettu_variant"},
+        {id: "samyuta_adavus", title: "Samyuta-style adavus", notes: "Adavus that use combined hand gestures and footwork (Samyuta influences).", practiceSteps: ["Combine hastas and foot patterns","Practice slowly then speed up"], animationHint: "samyuta_adavus"},
+        {id: "mukha_adavu", title: "Mukha adavu (face-oriented)", notes: "Adavus focusing on expressions with accompanying footwork.", practiceSteps: ["Practice facial expressions separately","Integrate with footwork"], animationHint: "mukha_adavu"},
+        {id: "theerthaka_adavu", title: "Theerthaka/Chari Adavu", notes: "Traveling steps and chari movements used to traverse the stage.", practiceSteps: ["Measure stage distance","Practice smooth transitions"], animationHint: "chari_adavu"},
+        {id: "kuthu_adavu", title: "Kuthu/Tempo Adavu", notes: "High-energy rhythmic adavu with strong stamping.", practiceSteps: ["Build stamina","Practice with percussion accompaniment"], animationHint: "kuthu_adavu"},
+        {id: "other_common_adavus", title: "Other common adavus", notes: "Includes Mandi, Kudutta, Nattu variants, Chari, Kaaladi, etc. — multiple school-specific names.", practiceSteps: ["Consult guru/school syllabus for local names","Practice each slowly"], animationHint: "adavus_misc"}
       ]
     },
     {
