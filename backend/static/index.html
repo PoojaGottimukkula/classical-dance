@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Classical Dance Tutor — Bharatanatyam</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script type="module" src="https://unpkg.com/three@0.158.0/build/three.module.js"></script>
+    <script type="module" src="https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js"></script>
+    <script type="module" src="https://unpkg.com/three@0.158.0/examples/jsm/loaders/GLTFLoader.js"></script>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <header>
+        <h1>Classical Dance Tutor</h1>
+        <nav>
+          <button id="menu-bhar">Bharatanatyam</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="syllabus" class="card">
+          <h2>Syllabus</h2>
+          <div id="tiers"></div>
+        </section>
+
+        <section id="viewer" class="card viewer-card">
+          <h2>Interactive 3D Visualizer</h2>
+          <div id="three-root" class="three-root"></div>
+          <div class="viewer-toolbar">
+            <label>Model URL: <input id="model-url" placeholder="/uploads/sample_dancer.glb" /></label>
+            <button id="load-model">Load</button>
+            <label>Animation: <select id="anim-select"><option>—</option></select></label>
+            <button id="play-anim">Play</button>
+            <button id="pause-anim">Pause</button>
+            <label>Speed: <input id="speed" type="range" min="0.25" max="2" step="0.05" value="1"/></label>
+          </div>
+          <div class="controls">
+            <button id="practice">Mark Lesson Practiced</button>
+            <button id="achievement">Unlock Achievement</button>
+          </div>
+        </section>
+
+        <section id="progress" class="card">
+          <h2>Progress</h2>
+          <pre id="progress-json">{} </pre>
+        </section>
+      </main>
+
+      <footer>
+        <small>Prototype — replace sample models with Bharatanatyam motion-captured glTFs</small>
+      </footer>
+    </div>
+
+    <script type="module" src="/static/app.js"></script>
+  </body>
+  </html>
