@@ -134,7 +134,12 @@ SYLLABUS = {
             "title": "Abhinaya & Navarasas",
             "summary": "Facial expression, eye movements, neck exercises, and the nine rasas used in storytelling.",
             "lessons": [
-                {"id":"navarasa","title":"Navarasa Overview","notes":"The nine emotions: Shringara, Hasya, Karuna, Raudra, Veera, Bhayanaka, Bibhatsa, Adbhuta, Shanta.","practiceSteps":["Practice each rasa with minimal movement","Record and compare"],"animationHint":"expression_idle"}
+                {"id":"abhinaya_intro","title":"Abhinaya Introduction","notes":"Introduction to abhinaya (expressive aspect): angika, vachika, aharya, sattvika. Importance of micro-expressions.","practiceSteps":["Observe a guru demonstrating","Mirror practice for 5–10 minutes daily"],"animationHint":"expression_idle"},
+                {"id":"eye_movements","title":"Drishti — Eye Movement Exercises","notes":"Techniques for controlled eye movements: saccades, tracking, darting and sustained gazes.","practiceSteps":["Practice left-right-up-down glances","Hold soft gaze for counts of 4,8"],"animationHint":"eye_drill"},
+                {"id":"neck_exercises","title":"Neck and Head Movement Exercises","notes":"Neck muscles conditioning and safe movement patterns used in abhinaya and chari movements.","practiceSteps":["Gentle neck rolls","Axis stabilization drills"],"animationHint":"neck_drills"},
+                {"id":"facial_exercises","title":"Facial Expression Drills","notes":"Isolated facial muscle control: eyebrow lifts, cheek movements, lip and jaw articulation.","practiceSteps":["Repeat eyebrow-raise/relax cycles","Practice smile-to-frown transitions"],"animationHint":"face_drills"},
+                {"id":"navarasa_overview","title":"Navarasa Overview","notes":"The nine emotions used in Indian classical storytelling and their typical expressive cues.","practiceSteps":["Study each rasa's core expression","Record short clips to compare"],"animationHint":"rasa_overview"},
+                {"id":"rasa_detailed","title":"Navarasa — Detailed Exercises","notes":"Individual practice entries for each rasa: Shringara (love), Hasya (laughter), Karuna (compassion), Raudra (anger), Veera (heroism), Bhayanaka (fear), Bibhatsa (disgust), Adbhuta (wonder), Shanta (peace).","practiceSteps":["Practice each rasa for short solo sequences","Combine with simple hasta gestures"],"animationHint":"rasa_practice"}
             ]
         },
         {
@@ -142,8 +147,12 @@ SYLLABUS = {
             "title": "Repertoire (Margam)",
             "summary": "Typical concert structure: Alarippu, Jatiswaram, Shabdam, Varnam, Padam, Tillana.",
             "lessons": [
-                {"id":"alarippu","title":"Alarippu","notes":"Opening invocatory item emphasizing posture and footwork.","practiceSteps":[],"animationHint":"alarippu"},
-                {"id":"tillana","title":"Tillana","notes":"Fast rhythmic finale with strong nritta (pure dance).","practiceSteps":[],"animationHint":"tillana"}
+                {"id":"alarippu","title":"Alarippu","notes":"Opening invocatory item emphasizing posture, alignment and gradual body warm-up through rhythmic stamping.","practiceSteps":["Focus on breathing and posture","Slowly build footwork intensity"],"animationHint":"alarippu"},
+                {"id":"jatiswaram","title":"Jatiswaram","notes":"Pure dance item featuring jatis (rhythmic syllable patterns) combined with swaras (melody) — emphasizes nritta and coordination.","practiceSteps":["Practice jati sequences at varying speeds","Coordinate with melodic phrases"],"animationHint":"jatiswaram"},
+                {"id":"shabdam","title":"Shabdam","notes":"Expressive short piece that combines nritta and abhinaya — often devotional or descriptive in theme.","practiceSteps":["Work on clear lip-syncing and expressions","Maintain tala while emoting"],"animationHint":"shabdam"},
+                {"id":"varnam","title":"Varnam","notes":"Central, long piece in the Margam combining nritta, nritya and abhinaya — technically demanding and narrative-rich.","practiceSteps":["Break into segments: pallavi, anupallavi, charanam","Practice abhinaya segments slowly"],"animationHint":"varnam"},
+                {"id":"padam","title":"Padam","notes":"Slow, expressive piece focusing on bhava and subtle abhinaya, usually devotional or romantic in theme.","practiceSteps":["Deliberate facial nuance work","Sustain phrases with controlled breath"],"animationHint":"padam"},
+                {"id":"tillana","title":"Tillana","notes":"Fast rhythmic finale with strong nritta and signature bols, often used to end a Margam.","practiceSteps":["Work on speed and clarity","Practice rhythmic variations"],"animationHint":"tillana"}
             ]
         }
     ]
