@@ -1,0 +1,31 @@
+:root{
+  --bg:#071428;
+  --panel:#0d1622;
+  --muted:#9aa6bf;
+  --accent:#ffb347;
+  --glass: rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,Helvetica;background:linear-gradient(180deg,var(--bg),#021022);color:#e6eef8;margin:0}
+.app-grid{display:grid;grid-template-areas:"top top" "sidebar stage" "sidebar notes" "footer footer";grid-template-columns:320px 1fr;gap:14px;max-width:1200px;margin:18px auto;padding:12px}
+.topbar{grid-area:top;display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
+.brand h1{margin:0;font-size:1.4rem}
+.brand .tag{margin:0;color:var(--muted);font-size:0.9rem}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.sidebar{grid-area:sidebar;height:calc(100vh - 160px);overflow:auto}
+.stage{grid-area:stage;display:flex;flex-direction:column}
+.notes{grid-area:notes;height:240px;overflow:auto}
+.footer{grid-area:footer;text-align:center;padding:8px;color:var(--muted)}
+.lesson-list .tier{padding:8px;border-radius:8px;margin-bottom:8px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+.lesson-list h3{margin:0;font-size:1rem}
+.three-root{width:100%;height:480px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#071428,#021024);display:flex;align-items:center;justify-content:center}
+.stage-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.viewer-toolbar{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.viewer-toolbar input, .viewer-toolbar select{background:#071026;border:1px solid rgba(255,255,255,0.03);color:var(--muted);padding:8px;border-radius:8px}
+.viewer-toolbar button{background:var(--accent);border:none;padding:8px 12px;border-radius:8px;color:#061018;cursor:pointer}
+.toggle{display:flex;align-items:center;gap:6px;color:var(--muted)}
+#progress-json{white-space:pre-wrap;word-break:break-word;background:#071026;padding:10px;border-radius:8px;margin-top:8px}
+.stage-controls button{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:6px 8px;border-radius:6px;color:var(--muted);cursor:pointer}
+.tag, .muted{color:var(--muted)}
+.controls-row{display:flex;gap:8px;margin-top:10px}
+.hint{font-size:0.9rem;color:var(--muted);margin-top:8px}
