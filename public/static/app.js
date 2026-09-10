@@ -63,6 +63,21 @@ async function openLesson(tierId, lessonId) {
   const t = await res.json();
   const lesson = (t.lessons||[]).find(l=>l.id===lessonId);
   if (lesson) renderLessonDetails(t, lesson);
+  // request that the loaded model (when ready) auto-play a mapped animation
+  window.lessonToAutoPlay = lessonId;
+}
+
+function computeClipForLesson(lessonId, names) {
+  if (!names || !names.length) return null;
+  const m = lessonId.match(/^tatta_(\d+)$/);
+  let idx = 0;
+  if (m) {
+    idx = (parseInt(m[1],10)-1);
+  } else {
+    let s = 0; for (let i=0;i<lessonId.length;i++) s += lessonId.charCodeAt(i);
+    idx = s;
+  }
+  return names[idx % names.length];
 }
 
 async function init() {
@@ -70,15 +85,25 @@ async function init() {
   renderTiers(syllabus);
 
   await ensureViewer();
-  // default to a public GLB so the 3D viewer works without uploads
-  document.getElementById('model-url').value = 'https://threejs.org/examples/models/gltf/LeePerrySmith/LeePerrySmith.glb';
+  // default to a human-like animated model so the viewer can perform adavus
+  document.getElementById('model-url').value = 'https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb';
   document.getElementById('load-model').addEventListener('click', async () => {
     const url = document.getElementById('model-url').value;
     const v = await ensureViewer();
     await v.loadModel(url);
     const names = v.listAnimationNames();
+    window.availableAnimationNames = names;
     const sel = document.getElementById('anim-select');
     sel.innerHTML = '<option value="">— Animation —</option>' + names.map(n => `<option value="${n}">${n}</option>`).join('');
+    // if a lesson requested an auto-play, pick a clip mapped to the lesson
+    if (window.lessonToAutoPlay) {
+      const clip = computeClipForLesson(window.lessonToAutoPlay, names);
+      if (clip) {
+        sel.value = clip;
+        v.play(clip);
+      }
+      window.lessonToAutoPlay = null;
+    }
     const playBtn = document.getElementById('play-anim');
     const pauseBtn = document.getElementById('pause-anim');
     const hint = document.getElementById('anim-hint');
