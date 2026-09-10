@@ -23,6 +23,11 @@ body{font-family:Inter,system-ui,Arial,Helvetica;background:linear-gradient(180d
 .viewer-toolbar{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
 .viewer-toolbar input, .viewer-toolbar select{background:#071026;border:1px solid rgba(255,255,255,0.03);color:var(--muted);padding:8px;border-radius:8px}
 .viewer-toolbar button{background:var(--accent);border:none;padding:8px 12px;border-radius:8px;color:#061018;cursor:pointer}
+.icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:8px;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.icon-btn svg{display:block;color:var(--accent)}
+.icon-btn:disabled{opacity:0.45;cursor:not-allowed}
+.icon-btn:hover:not(:disabled){transform:translateY(-1px)}
+.anim-hint{font-size:0.85rem;color:var(--muted);margin-left:8px}
 .toggle{display:flex;align-items:center;gap:6px;color:var(--muted)}
 #progress-json{white-space:pre-wrap;word-break:break-word;background:#071026;padding:10px;border-radius:8px;margin-top:8px}
 .stage-controls button{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:6px 8px;border-radius:6px;color:var(--muted);cursor:pointer}

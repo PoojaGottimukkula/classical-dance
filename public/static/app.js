@@ -78,17 +78,46 @@ async function init() {
     await v.loadModel(url);
     const names = v.listAnimationNames();
     const sel = document.getElementById('anim-select');
-    sel.innerHTML = '<option>—</option>' + names.map(n => `<option value="${n}">${n}</option>`).join('');
+    sel.innerHTML = '<option value="">— Animation —</option>' + names.map(n => `<option value="${n}">${n}</option>`).join('');
+    const playBtn = document.getElementById('play-anim');
+    const pauseBtn = document.getElementById('pause-anim');
+    const hint = document.getElementById('anim-hint');
+    if (!names || names.length === 0) {
+      // disable controls when no animations
+      if (playBtn) playBtn.disabled = true;
+      if (pauseBtn) pauseBtn.disabled = true;
+      if (hint) hint.textContent = 'No animations found in this model.';
+    } else {
+      if (playBtn) playBtn.disabled = false;
+      if (pauseBtn) pauseBtn.disabled = false;
+      if (hint) hint.textContent = 'Select an animation and press play.';
+    }
   });
-  document.getElementById('play-anim').addEventListener('click', async () => {
+  const playAnim = document.getElementById('play-anim');
+  const pauseAnim = document.getElementById('pause-anim');
+  playAnim?.addEventListener('click', async () => {
     const sel = document.getElementById('anim-select');
-    const name = sel.value;
+    const name = sel?.value || '';
     const v = await ensureViewer();
     v.play(name);
+    if (playAnim) playAnim.disabled = true;
+    if (pauseAnim) pauseAnim.disabled = false;
   });
-  document.getElementById('pause-anim').addEventListener('click', async () => {
+  pauseAnim?.addEventListener('click', async () => {
     const v = await ensureViewer();
     v.pause();
+    if (playAnim) playAnim.disabled = false;
+    if (pauseAnim) pauseAnim.disabled = true;
+  });
+
+  // Auto-play when selecting an animation from the dropdown
+  document.getElementById('anim-select')?.addEventListener('change', async (e) => {
+    const val = e.target.value;
+    if (!val) return;
+    const v = await ensureViewer();
+    v.play(val);
+    if (playAnim) playAnim.disabled = true;
+    if (pauseAnim) pauseAnim.disabled = false;
   });
   // three discrete speed levels: Slow(0.5), Normal(1), Fast(2)
   const setSpeedLevel = async (level) => {
