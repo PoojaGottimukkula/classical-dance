@@ -70,7 +70,8 @@ async function init() {
   renderTiers(syllabus);
 
   await ensureViewer();
-  document.getElementById('model-url').value = '/uploads/sample_dancer.glb';
+  // default to a public GLB so the 3D viewer works without uploads
+  document.getElementById('model-url').value = 'https://threejs.org/examples/models/gltf/LeePerrySmith/LeePerrySmith.glb';
   document.getElementById('load-model').addEventListener('click', async () => {
     const url = document.getElementById('model-url').value;
     const v = await ensureViewer();
@@ -89,9 +90,46 @@ async function init() {
     const v = await ensureViewer();
     v.pause();
   });
-  document.getElementById('speed').addEventListener('input', async (e) => {
+  // three discrete speed levels: Slow(0.5), Normal(1), Fast(2)
+  const setSpeedLevel = async (level) => {
     const v = await ensureViewer();
-    v.setSpeed(parseFloat(e.target.value));
+    const map = { slow: 0.5, normal: 1, fast: 2 };
+    v.setSpeed(map[level] || 1);
+    // update speed slider if present
+    const slider = document.getElementById('speed');
+    if (slider) slider.value = map[level] || 1;
+  };
+  document.getElementById('speed-slow')?.addEventListener('click', ()=>setSpeedLevel('slow'));
+  document.getElementById('speed-normal')?.addEventListener('click', ()=>setSpeedLevel('normal'));
+  document.getElementById('speed-fast')?.addEventListener('click', ()=>setSpeedLevel('fast'));
+
+  // simple rhythm/metronome player for practice steps
+  let rhythmTimer = null;
+  const rhythmPattern = ['ta','tum','ta','ta'];
+  let rhythmIndex = 0;
+  let rhythmInterval = 600; // ms default
+  function playBeep() {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.value = 800;
+      o.connect(g); g.connect(ctx.destination);
+      g.gain.setValueAtTime(0.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime + 0.01);
+      o.start();
+      setTimeout(()=>{ o.stop(); ctx.close(); }, 120);
+    } catch(e){ console.warn('Audio error', e); }
+  }
+  document.getElementById('play-rhythm')?.addEventListener('click', ()=>{
+    if (rhythmTimer) { clearInterval(rhythmTimer); rhythmTimer = null; return; }
+    // read current speed multiplier
+    const s = document.getElementById('speed') ? parseFloat(document.getElementById('speed').value) : 1;
+    rhythmInterval = Math.round(600 / s);
+    rhythmIndex = 0;
+    playBeep();
+    rhythmTimer = setInterval(()=>{ playBeep(); rhythmIndex = (rhythmIndex+1) % rhythmPattern.length; }, rhythmInterval);
   });
 
   document.getElementById('wireframe').addEventListener('change', async (e) => {
